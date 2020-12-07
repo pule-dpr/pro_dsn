@@ -1,0 +1,51 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+.header{
+	font-size: 4rem;
+	text-align: center;
+}
+.hot{background-color: #defdf3;}
+.hot,.oneday,.other{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 22px;
+	color: #0e0a25;
+}
+.kinds{
+	font-size: 3.5rem;
+}
+.active{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.hr{
+	height: 2px;
+	background-color: white;
+	border: none;
+}
+.icon img{
+	width: 85px;
+	height: 85px;
+}
+.ticket{
+	width: 56%;
+}
+.ticket_title{
+	padding: 12px;
+	font-size: 3.2rem;
+	font-weight: bold;
+}
+.ticket_detail{
+	font-size: 2.2rem;
+}
+.price{
+	font-size: 3.6rem;
+}
+.min_price{
+	font-size: 2rem;
+}
