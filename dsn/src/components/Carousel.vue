@@ -1,5 +1,5 @@
 <template>
-  <div id="demo" class="carousel" :style="{width:innerWidth+'px'}" @mouseenter="stop" @mouseleave="start">
+  <div id="demo" class="carousel" :style="{width:innerWidth-20+'px'}" @mouseenter="stop" @mouseleave="start">
       <!--1.轮播图片-->
     <div class="carousel-inner" :class="ulClass" :style="ulStyle">
       <div v-for="(img,i) of imgs" :key="i" class="carousel-item" :style="{width:innerWidth+'px'}">
@@ -14,13 +14,6 @@
         <router-link :to="imgs[0].to" v-text="imgs[0].title"></router-link>
       </div>
     </div>
-    <!--2.左右箭头-->
-    <a href="javascript:;" @click="move(1)" class="carousel-control-next">
-        <span class="carousel-control-next-icon"></span>
-    </a>
-    <a href="javascript:;" @click="move(-1)" class="carousel-control-prev">
-        <span class="carousel-control-prev-icon"></span>
-    </a>
     <!--3.轮播指示符-->
     <ul class="carousel-indicators">
         <li v-for="(img,idx) of imgs" :key="idx" :class="idx==i?'active':''" @click="moveTo(idx)"></li>
@@ -36,27 +29,27 @@ export default {
       i:0,
       imgs:[
         {
-          src:"/img/banner1.jpg",
+          src:"../assets/img/banner1.jpg",
           title:"《Ghost Mane》| STARR J与恶魔一起住在Dark Castle",
           to:"javascript:;"
         },
         { 
-          src:"/img/banner2.jpg",
+          src:"../assets/img/banner2.jpg",
           title:"赐我们一首比“情歌而已”更值得唱的歌 声音碎片第三支预热单曲《送流水》首发",
           to:"javascript:;"
         },
         { 
-          src:"/img/banner3.jpg",
+          src:"../assets/img/banner3.jpg",
           title:"我眼里只有一个3号他永远昂着头 | 黄旭全新单曲《低位》致敬韦德",
           to:"javascript:;"
         },
         { 
-          src:"/img/banner4.jpg",
+          src:"../assets/img/banner4.jpg",
           title:"彭坦春晓携女率性玩音乐 Modern Sky Kids厂牌汇聚亲子市场新能量",
           to:"javascript:;"
         },
          { 
-          src:"/img/banner5.jpg",
+          src:"../assets/img/banner5.jpg",
           title:"彭坦春晓携女率性玩音乐 Modern Sky Kids厂牌汇聚亲子市场新能量",
           to:"javascript:;"
         },
@@ -163,6 +156,9 @@ export default {
   .carousel{
     overflow:hidden;
     position: relative;
+    height: 240px;
+    border-radius: 20px;
+    margin-left: 10px;
   }
   .carousel:after{
     content:"";
@@ -193,17 +189,12 @@ export default {
   .carousel-indicators{
     bottom:130px;
     position: absolute;
-     left:130px;
+     left:140px;
      top: 225px;
   }
-   .carousel-indicators::after{
-     content: "";
-     clear: both;
-     display: table;
-   }
   .carousel-indicators li{
-    width:8px;
-    height:8px;
+    width:6px;
+    height:6px;
     margin-left:6px;
     margin-right:6px;
     border-radius: 50%;
