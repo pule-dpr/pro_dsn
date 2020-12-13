@@ -17,9 +17,6 @@ app.use(cors({
     origin:['http://127.0.0.1:8080','http://localhost:8080']
   
   }));
- app.get('/cat',(req,res)=>{
-    res.send('OK');
-  });
 //使用第三方中间件
 app.use(bodyParser.urlencoded({
     extended:false

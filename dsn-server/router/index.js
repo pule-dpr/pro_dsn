@@ -1,8 +1,10 @@
 const express=require("express");
 var router=express.Router();
 var pool=require("../pool");
+//添加热门路由
 router.get("/",(req,res)=>{
-  var sql="SELECT * FROM `lc_index_product` where seq_recommended!=0 order by seq_recommended";
+  console.log(666);
+  var sql="SELECT * FROM `dsn_remen`";
   pool.query(sql,[],(err,result)=>{
     // res.writeHead(200,{
     //   "Access-Control-Allow-Origin":"*"
@@ -12,5 +14,7 @@ router.get("/",(req,res)=>{
     res.send(result);
   })
 })
+//添加首页轮播路由
+
 module.exports=router;
 //http://localhost:3000/index

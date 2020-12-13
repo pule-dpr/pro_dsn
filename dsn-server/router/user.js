@@ -4,9 +4,9 @@ const pool=require('../pool.js');
 //创建路由器
 const router=express.Router();
 //添加用户注册路由
-router.post('/v1/register',(req,res)=>{
+router.post('/register',(req,res)=>{
     var obj=req.body;
-    var sql='insert into lc_user set ?';
+    var sql='insert into dsn_user set ?';
     pool.query(sql,[obj],(err,result)=>{
         if(err) throw err;
         if(result.affectedRows>0){
@@ -17,12 +17,12 @@ router.post('/v1/register',(req,res)=>{
     })
 })
 //添加用户登录路由
-router.post('/v1/login',(req,res)=>{
+router.post('/login',(req,res)=>{
     console.log(req.body);
     var $uname=req.body.uname;
     var $upwd=req.body.upwd;
     console.log($uname,$upwd);
-    var sql='select*from lc_user where uname=? and upwd=?';
+    var sql='select*from dsn_user where uname=? and upwd=?';
     pool.query(sql,[$uname,$upwd],(err,result)=>{
         if(err) throw err;
         if(result.length>0){
@@ -33,9 +33,9 @@ router.post('/v1/login',(req,res)=>{
     });
 });
 //添加用户检索路由
-router.get('/v1/detail/:uid',(req,res)=>{
+router.get('/detail/:uid',(req,res)=>{
     var $uid=req.params.uid;
-    var sql='select * from lc_user where uid=?';
+    var sql='select * from dsn_user where uid=?';
     pool.query(sql,[$uid],(err,result)=>{
         if(err) throw err;
         if(result.affectedRows>0){
@@ -46,9 +46,9 @@ router.get('/v1/detail/:uid',(req,res)=>{
     });
  });
 //添加用户删除路由
-router.delete('/v1/delete/:uid',(req,res)=>{
+router.delete('/delete/:uid',(req,res)=>{
    var $uid=req.params.uid;
-   var sql='delete from lc_user where uid=?';
+   var sql='delete from dsn_user where uid=?';
    pool.query(sql,[$uid],(err,result)=>{
        if(err) throw err;
        if(result.affectedRows>0){
@@ -59,9 +59,9 @@ router.delete('/v1/delete/:uid',(req,res)=>{
    });
 });
 //添加用户修改路由
-router.put('/v1/update',(req,res)=>{
+router.put('/update',(req,res)=>{
     var obj=req.body;
-    var sql='update lc_user set ? where uid=?';
+    var sql='update dsn_user set ? where uid=?';
     pool.query(sql,[obj,obj.uid],(err,result)=>{
         if(err) throw err;
         if(result.affectedRows>0){
@@ -72,17 +72,17 @@ router.put('/v1/update',(req,res)=>{
     });
 });
 //添加用户列表路由
-router.get('/v1/list',(req,res)=>{
-    var sql='select *from lc_user';
+router.get('/list',(req,res)=>{
+    var sql='select *from dsn_user';
     pool.query(sql,[],(err,result)=>{
         if(err) throw err;
         res.send(result);
     });
 });
 //添加用户邮箱检测路由
-router.get('/v1/checkemail/:email',(req,res)=>{
+router.get('/checkemail/:email',(req,res)=>{
     var $email=req.params.email;
-    var sql='select *from lc_user where email=?';
+    var sql='select *from dsn_user where email=?';
     pool.query(sql,[$email],(err,result)=>{
         if(err) throw err;
         if(result.length>0){
@@ -93,9 +93,9 @@ router.get('/v1/checkemail/:email',(req,res)=>{
     });
 });
 //添加检测手机号路由
-router.get('/v1/phone/:phone',(req,res)=>{
+router.get('/phone/:phone',(req,res)=>{
     var $phone=req.params.phone;
-    var sql='select *from lc_user where phone=?';
+    var sql='select *from dsn_user where phone=?';
     pool.query(sql,[$phone],(err,result)=>{
         if(err) throw err;
         if(result.length>0){
@@ -106,9 +106,9 @@ router.get('/v1/phone/:phone',(req,res)=>{
     });
 });
 //检测用户名路由
-router.get('/v1/search/:uname',(req,res)=>{
+router.get('/search/:uname',(req,res)=>{
     var $uname=req.params.uname;
-    var sql='select*from lc_user where uname=?';
+    var sql='select*from dsn_user where uname=?';
     pool.query(sql,[$uname],(err,result)=>{
         if(err) throw err;
         if(result.length>0){

@@ -5,7 +5,7 @@ let pool=mysql.createPool({
     port:'3306',
     user:'root',
     password:'',
-    database:'lc',
+    database:'dsn',
    connectionLimit:15
 });
 module.exports=pool;
