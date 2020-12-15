@@ -19,8 +19,8 @@
             </div>
         </div>
         <div class="btn" v-else>
-          <router-link to="">登录</router-link>
-          <router-link to="">注册</router-link>
+          <router-link to="/logreg">登录</router-link>
+          <router-link to="/logreg">注册</router-link>
         </div>
       </div>
       <!--轮播组件-->
@@ -39,13 +39,13 @@
             </div>
             <p>演出</p>
           </div>
-           <div class="nav-item" @click="nav('/gonlue')">
+           <div class="nav-item" @click="nav('/strategy')">
             <div class="icon">
               <img src="/img/icon/gl.png" alt="">
             </div>
             <p>攻略</p>
           </div>
-           <div class="nav-item" @click="nav('/xuzhi')">
+           <div class="nav-item" @click="nav('/nocite')">
             <div class="icon">
               <img src="/img/icon/xz.png" alt="">
             </div>
@@ -108,32 +108,7 @@
         </mt-tab-container-item>
       </mt-tab-container>
       <!--底部导航-->
-      <mt-tabbar v-model="tabbar" fixed>
-        <mt-tab-item id="index">
-          首页
-          <img src="/img/icon/isindex.png" slot="icon" v-if="tabbar=='index'">
-          <img src="/img/icon/index.png" slot="icon" v-else>
-        </mt-tab-item>
-        <mt-tab-item id="position">
-          定位
-           <img src="/img/icon/isposition.png" slot="icon" v-if="tabbar=='position'">
-          <img src="/img/icon/position.png" slot="icon" v-else>
-        </mt-tab-item>
-        <mt-tab-item id="news" @click.native="nav('/issue')" >
-          发布 
-          <img src="/img/icon/news.png" slot="icon" >
-        </mt-tab-item>
-        <mt-tab-item id="near">
-          附近
-           <img src="/img/icon/isnear.png" slot="icon" v-if="tabbar=='near'">
-          <img src="/img/icon/near.png" slot="icon" v-else>
-        </mt-tab-item>
-        <mt-tab-item id="self">
-          我的
-           <img src="/img/icon/isself.png" slot="icon" v-if="tabbar=='self'">
-          <img src="/img/icon/self.png" slot="icon" v-else>
-        </mt-tab-item>
-      </mt-tabbar>
+      <tabbar></tabbar>
     </div>
 </template>
 <style>
@@ -281,7 +256,6 @@ export default {
   data(){
     return{
       active:"1",
-      tabbar:"index",
       islogin:false,
       project:[]
     }

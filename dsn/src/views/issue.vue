@@ -1,7 +1,7 @@
 <template>
 <div class="issue">
     <mt-header title="发表动态">
-        <span slot="left" class="off">取消</span>
+        <span slot="left" class="off" @click="back">取消</span>
         <button slot="right" class="sell">发送</button>
     </mt-header>
     <textarea class="content" placeholder="分享快乐..."> </textarea>
@@ -41,6 +41,10 @@
 </style>
 <script>
 export default {
-    
+    methods:{
+        back(){
+            history.go(-1);
+        }
+    }
 }
 </script>
